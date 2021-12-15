@@ -2,7 +2,11 @@
 import Image from "next/image";
 import { Box, Button, Container, Grid, Paper, Stack } from "@mui/material";
 
-export default function SignIn() {
+export default function SignIn({
+  signInWithGithub,
+  signInWithDiscord,
+  signInWithSlack,
+}) {
   return (
     <Container maxWidth="sm">
       <Paper elevation={3}>
@@ -21,7 +25,7 @@ export default function SignIn() {
             >
               <Grid>
                 <Image
-                  src="/logo.png"
+                  src="/KOSENT-c.png"
                   alt="logo"
                   width="292px"
                   height="115px"
@@ -44,12 +48,12 @@ export default function SignIn() {
                   opacity: [0.9, 0.8, 0.7],
                 },
               }}
-              onClick={() => {}}
+              onClick={() => signInWithGithub()}
             >
               GitHubログイン
             </Button>
           </>
-          <>
+          {/* <>
             <Button
               variant="contained"
               size="large"
@@ -61,7 +65,7 @@ export default function SignIn() {
                   opacity: [0.9, 0.8, 0.7],
                 },
               }}
-              onClick={() => {}}
+              onClick={() => signInWithDiscord()}
             >
               Discordログイン
             </Button>
@@ -78,11 +82,11 @@ export default function SignIn() {
                   opacity: [0.9, 0.8, 0.7],
                 },
               }}
-              onClick={() => {}}
+              onClick={() => signInWithSlack()}
             >
               Slackログイン
             </Button>
-          </>
+          </> */}
           <p></p>
         </Stack>
       </Paper>

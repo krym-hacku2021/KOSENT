@@ -1,5 +1,7 @@
 /** @format */
 import Image from "next/image";
+import { Router, useRouter } from "next/router";
+import { useRef } from "react";
 import {
   Box,
   Button,
@@ -10,8 +12,12 @@ import {
   TextField,
 } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
+import { modifyNickname } from "../lib/db_user";
 
-export default function SignIn() {
+export default function FirstLogin({ userInfo }) {
+  const inputNickname = useRef("名無しさん");
+  const router = useRouter();
+
   return (
     <Container maxWidth="sm">
       <Paper elevation={3}>
@@ -30,7 +36,7 @@ export default function SignIn() {
             >
               <Grid>
                 <Image
-                  src="/logo.png"
+                  src="/KOSENT-c.png"
                   alt="logo"
                   width="292px"
                   height="115px"
@@ -48,6 +54,7 @@ export default function SignIn() {
                 id="outlined-basic"
                 label="ニックネーム"
                 variant="standard"
+                inputRef={inputNickname}
               />
             </Box>
           </>
@@ -63,7 +70,16 @@ export default function SignIn() {
                   opacity: [0.9, 0.8, 0.7],
                 },
               }}
-              onClick={() => {}}
+              onClick={() => {
+                if (inputNickname.current.value != "") {
+                    console.log(`${userInfo}`)
+                  modifyNickname(userInfo.id, inputNickname.current.value).then(
+                    (value) => {
+                      router.push("/");
+                    }
+                  );
+                }
+              }}
             >
               登録
             </Button>

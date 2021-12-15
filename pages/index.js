@@ -3,64 +3,35 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import { Container, Paper } from "@mui/material";
+import Link from "next/link";
+import Router from "next/router";
+import { Container, Paper, Tabs, Tab, Typography, Box } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import styles from "../styles/Home.module.css";
+
 import EXAppBar from "./EXAppBar";
+
 import ArrowRightRoundedIcon from "@mui/icons-material/ArrowRightRounded";
 import ArrowLeftRoundedIcon from "@mui/icons-material/ArrowLeftRounded";
-import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 
-function TabPanel(props) {
-  const { children, value, index, ...other } = props;
+import styles from "../styles/Home.module.css";
 
-  return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
-    </div>
-  );
-}
+import { supabase } from "../lib/supabase_client";
+import { UserData } from "../hooks/UserData";
+import useUser from "../hooks/useUser";
+import { getUserInfo, modifyUserInfo } from "../lib/db_user";
+import { TabPanel, a11yProps } from "../components/TabPanel";
+import SignIn from "./signin";
+import FirstLogin from "./first_login";
 
-TabPanel.propTypes = {
-  children: PropTypes.node,
-  index: PropTypes.number.isRequired,
-  value: PropTypes.number.isRequired,
-};
-
-function a11yProps(index) {
-  return {
-    id: `simple-tab-${index}`,
-    "aria-controls": `simple-tabpanel-${index}`,
-  };
-}
-
-export default function Home() {
-  const [tabValue, setTabValue] = React.useState(0);
-
-  const handleTabChange = (event, newValue) => {
-    setTabValue(newValue);
-  };
+function HomeLoggedIn() {
+  const [tabValue, setTabValue] = useState(0);
 
   return (
     <div className={styles.container}>
       <Head>
-        <title>exparty-sample</title>
-        <meta name="description" content="sample for exparty" />
+        <title>KOSENT</title>
+        <meta name="description" content="KOSENT" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -115,7 +86,10 @@ export default function Home() {
         <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100vw" }}>
           <Tabs
             value={tabValue}
-            onChange={handleTabChange}
+            sx={{width: "100%"}}
+            onChange={(event, newValue) => {
+              setTabValue(newValue);
+            }}
           >
             <Tab label="最新の投稿" {...a11yProps(0)} sx={{ width: "50%" }} />
             <Tab label="人気の投稿" {...a11yProps(1)} sx={{ width: "50%" }} />
@@ -146,3 +120,68 @@ export default function Home() {
   );
 }
 
+export default function Home() {
+
+  const {
+    session,
+    signInWithGithub,
+    signInWithDiscord,
+    signInWithSlack,
+    signOut,
+  } = useUser();
+  const [userInfoLoaded, setUserInfoLoaded] = useState(false);
+  const [userInfo, setUserInfo] = useState({
+    id: "",
+    nickname: "",
+    avatarurl: "",
+  });
+  const userDataValue = {
+    userInfo,
+    setUserInfo,
+    session,
+    signOut
+  };
+
+  let Contents = <div>ろーでぃんぐ</div>;
+
+  if (session) {
+    console.log("ログイン済み");
+
+    if (!userInfoLoaded) {
+      console.log("ユーザ情報読み込むよ！");
+      getUserInfo().then((value) => {
+        console.log(`ユーザ情報読込完了 >>> ${JSON.stringify(value)}`);
+        setUserInfo({
+          id: value.id,
+          nickname: value.nickname,
+          avatarurl: value.avatarurl,
+        });
+        setUserInfoLoaded(true);
+      });
+    } else {
+      if (userInfo.nickname == "" || userInfo.nickname == null) {
+        console.log("ニックネームを設定するよ");
+        console.log(`${JSON.stringify(userInfo)}`);
+        Contents = <FirstLogin userInfo={userInfo} />;
+      } else {
+        console.log("ログイン処理完了！");
+        Contents = (
+          <UserData.Provider value={userDataValue}>
+            <HomeLoggedIn signOut={signOut} />
+          </UserData.Provider>
+        );
+      }
+    }
+  } else {
+    console.log("未ログイン");
+    Contents = (
+      <SignIn
+        signInWithGithub={signInWithGithub}
+        signInWithDiscord={signInWithDiscord}
+        signInWithSlack={signInWithSlack}
+      />
+    );
+  }
+
+  return <>{Contents}</>;
+}
