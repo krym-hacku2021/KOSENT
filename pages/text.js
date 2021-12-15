@@ -18,7 +18,6 @@ export default function question(props){
 
   return (
   <div>
-      <EXAppBar/>
        
   
   <div class="basho">

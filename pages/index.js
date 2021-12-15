@@ -15,7 +15,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Text from "./text.js"
+// import Text from "./text.js"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -124,19 +124,11 @@ export default function Home() {
         </Box>
         <TabPanel value={tabValue} index={0}>
           a
-          <Text/>
-          <Text/>
-          <Text/>
-          <Text/>
-          <Text/>
+
         </TabPanel>
         <TabPanel value={tabValue} index={1}>
           b
-          <Text/>
-          <Text/>
-          <Text/>
-          <Text/>
-          <Text/>
+
         </TabPanel>
       </main>
     </div>
