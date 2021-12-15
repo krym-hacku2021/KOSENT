@@ -149,7 +149,7 @@ export default function EXAppBar() {
       <AppBar position="static" sx={{ background: "#FA8F02" }}>
         <Toolbar>
           <Link href="/">
-            <Image src="/logo.png" alt="KOSENT" width="100px" height="50px"/>
+            <Image src="/KOSENT-c.png" alt="KOSENT" width="100px" height="50px"/>
           </Link>
           <Box sx={{ flexGrow: 1 }} />
           <Search>
@@ -183,7 +183,7 @@ export default function EXAppBar() {
               component="div"
               sx={{ display: { xs: "none", sm: "block" } }}
             >
-              <Link href="http://localhost:3000/text">投稿</Link>
+              <Link href="https://kosent.vercel.app/text">質問・相談</Link>
             </Typography>
           </Button>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>

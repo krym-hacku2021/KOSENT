@@ -67,7 +67,7 @@ export default function Home() {
       <main className={styles.main}>
         <EXAppBar></EXAppBar>
 
-        {/* <Container>
+        <Container>
           <Carousel
             autoPlay={true}
             infiniteLoop={true}
@@ -84,7 +84,7 @@ export default function Home() {
               }}
             >
               <h2>
-                <Baloon></Baloon>
+                1page
               </h2>
             </Paper>
             <Paper
@@ -95,7 +95,7 @@ export default function Home() {
               }}
             >
               <h2>
-                <Baloon></Baloon>
+                2page
               </h2>
             </Paper>
             <Paper
@@ -106,11 +106,11 @@ export default function Home() {
               }}
             >
               <h2>
-                <Baloon></Baloon>
+                3page
               </h2>
             </Paper>
           </Carousel>
-        </Container> */}
+        </Container>
 
         <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100vw" }}>
           <Tabs
