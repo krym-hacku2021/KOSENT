@@ -1,5 +1,7 @@
 /** @format */
 // import * as React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -61,10 +63,10 @@ export default function EXAppBar() {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const [serch,setSerch]=useState("");
-  const update=function(){
+  const [serch, setSerch] = useState("");
+  const update = function () {
     props.update(serch);
-}
+  };
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -152,9 +154,9 @@ export default function EXAppBar() {
             component="div"
             sx={{ display: { xs: "none", sm: "block" } }}
           >
-            <a href="http://localhost:3000/">
-            <img  src="/KOSENT-c.png" alt="KOSENT"/>
-            </a>
+            <Link href="/">
+              <Image src="/KOSENT-c.png" alt="KOSENT" />
+            </Link>
           </Typography>
           <Box sx={{ flexGrow: 1 }} />
           <Search>
@@ -164,7 +166,7 @@ export default function EXAppBar() {
             <StyledInputBase
               placeholder="キーワード検索"
               inputProps={{ "aria-label": "search" }}
-              onChange={event => setSerch(event.target.value)}
+              onChange={(event) => setSerch(event.target.value)}
             />
           </Search>
           <Button
@@ -188,9 +190,7 @@ export default function EXAppBar() {
               component="div"
               sx={{ display: { xs: "none", sm: "block" } }}
             >
-              <a href="http://localhost:3000/text">
-              投稿
-              </a>
+              <Link href="http://localhost:3000/text">投稿</Link>
             </Typography>
           </Button>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
