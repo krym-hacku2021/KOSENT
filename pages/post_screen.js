@@ -10,7 +10,7 @@ export default function PostScreen({
   ans_count,
 }) {
   return (
-    <div className="PostSc.main">
+    <div className="PostSc.main2">
       <div className="PostSc.postframe">
         <div className="PostSc.textframe">
           <div className="PostSc.ue">

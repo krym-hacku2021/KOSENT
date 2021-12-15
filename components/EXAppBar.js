@@ -183,7 +183,7 @@ export default function EXAppBar() {
               component="div"
               sx={{ display: { xs: "none", sm: "block" } }}
             >
-              <Link href="http://localhost:3000/text">投稿</Link>
+              <Link href="https://kosent.vercel.app/text">質問・相談</Link>
             </Typography>
           </Button>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>

@@ -12,7 +12,7 @@ export default function PostAns({
   bad,
 }) {
   return (
-    <div className="Postans.main">
+    <div className="Postans.main1">
       <div className="Postans.postframe">
         <div className="Postans.textframe">
           <div className="Postans.ue">

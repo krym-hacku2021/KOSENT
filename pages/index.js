@@ -38,7 +38,7 @@ function HomeLoggedIn() {
       <main className={styles.main}>
         <EXAppBar></EXAppBar>
 
-        {/* <Container>
+        <Container>
           <Carousel
             autoPlay={true}
             infiniteLoop={true}
@@ -55,7 +55,7 @@ function HomeLoggedIn() {
               }}
             >
               <h2>
-                <Baloon></Baloon>
+                1page
               </h2>
             </Paper>
             <Paper
@@ -66,7 +66,7 @@ function HomeLoggedIn() {
               }}
             >
               <h2>
-                <Baloon></Baloon>
+                2page
               </h2>
             </Paper>
             <Paper
@@ -77,11 +77,11 @@ function HomeLoggedIn() {
               }}
             >
               <h2>
-                <Baloon></Baloon>
+                3page
               </h2>
             </Paper>
           </Carousel>
-        </Container> */}
+        </Container>
 
         <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100vw" }}>
           <Tabs
@@ -97,23 +97,11 @@ function HomeLoggedIn() {
         </Box>
         <TabPanel value={tabValue} index={0}>
           a
-          {/* <Textarea></Textarea>
-          <Textarea></Textarea>
-          <Textarea></Textarea>
-          <Textarea></Textarea>
-          <Textarea></Textarea>
-          <Textarea></Textarea>
-          <Textarea></Textarea> */}
+
         </TabPanel>
         <TabPanel value={tabValue} index={1}>
           b
-          {/* <Textarea></Textarea>
-          <Textarea></Textarea>
-          <Textarea></Textarea>
-          <Textarea></Textarea>
-          <Textarea></Textarea>
-          <Textarea></Textarea>
-          <Textarea></Textarea> */}
+
         </TabPanel>
       </main>
     </div>
