@@ -18,9 +18,8 @@ export default function question(props){
 
   return (
   <div>
-       
-  
-  <div class="basho">
+    
+    <div className="basho">
   <div className="question_frame">
             <div className="upload_img_button">
                 <div className="upload_img">
@@ -40,16 +39,16 @@ export default function question(props){
                 </div>
             </div>
         </div>
-        <div class="b">
+        <div className="b">
         <textarea class="txt" placeholder="3文字以上入力してください" 
         onChange={event => setText(event.target.value)}
         /><br></br>
-        <p class="sita">あなたにおすすめのタグ<br></br>
-        <button class="kadomaru">#広島商船</button>
-        <button class="kadomaru">#流通情報工学科</button>
-        <button class="kadomaru">#情報コース</button><br></br>
+        <p className="sita">あなたにおすすめのタグ<br></br>
+        <button className="kadomaru">#広島商船</button>
+        <button className="kadomaru">#流通情報工学科</button>
+        <button className="kadomaru">#情報コース</button><br></br>
         <input type="submit" value="送信" />
-        <div class="b">
+        <div className="b">
         {/* <Tab name="あいうえお" value={text} update={text}></Tab> */}
         </div>
         </p>
