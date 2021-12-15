@@ -9,7 +9,7 @@ import { Container, Paper, Tabs, Tab, Typography, Box } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-import EXAppBar from "./EXAppBar";
+import EXAppBar from "../components/EXAppBar";
 
 import ArrowRightRoundedIcon from "@mui/icons-material/ArrowRightRounded";
 import ArrowLeftRoundedIcon from "@mui/icons-material/ArrowLeftRounded";
@@ -21,8 +21,8 @@ import { UserData } from "../hooks/UserData";
 import useUser from "../hooks/useUser";
 import { getUserInfo, modifyUserInfo } from "../lib/db_user";
 import { TabPanel, a11yProps } from "../components/TabPanel";
-import SignIn from "./signin";
-import FirstLogin from "./first_login";
+import SignIn from "../components/signin";
+import FirstSignIn from "../components/first_signin";
 
 function HomeLoggedIn() {
   const [tabValue, setTabValue] = useState(0);
@@ -38,7 +38,7 @@ function HomeLoggedIn() {
       <main className={styles.main}>
         <EXAppBar></EXAppBar>
 
-        <Container>
+        {/* <Container>
           <Carousel
             autoPlay={true}
             infiniteLoop={true}
@@ -55,7 +55,7 @@ function HomeLoggedIn() {
               }}
             >
               <h2>
-                1page
+                <Baloon></Baloon>
               </h2>
             </Paper>
             <Paper
@@ -66,7 +66,7 @@ function HomeLoggedIn() {
               }}
             >
               <h2>
-                2page
+                <Baloon></Baloon>
               </h2>
             </Paper>
             <Paper
@@ -77,11 +77,11 @@ function HomeLoggedIn() {
               }}
             >
               <h2>
-                3page
+                <Baloon></Baloon>
               </h2>
             </Paper>
           </Carousel>
-        </Container>
+        </Container> */}
 
         <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100vw" }}>
           <Tabs
@@ -91,17 +91,29 @@ function HomeLoggedIn() {
               setTabValue(newValue);
             }}
           >
-            <Tab label="最新の投稿" {...a11yProps(0)} sx={{ width: "50%" }} />
-            <Tab label="人気の投稿" {...a11yProps(1)} sx={{ width: "50%" }} />
+            <Tab label="最新の投稿" {...a11yProps(0)} sx={{ width: "50vw" }} />
+            <Tab label="人気の投稿" {...a11yProps(1)} sx={{ width: "50vw" }} />
           </Tabs>
         </Box>
         <TabPanel value={tabValue} index={0}>
           a
-
+          {/* <Textarea></Textarea>
+          <Textarea></Textarea>
+          <Textarea></Textarea>
+          <Textarea></Textarea>
+          <Textarea></Textarea>
+          <Textarea></Textarea>
+          <Textarea></Textarea> */}
         </TabPanel>
         <TabPanel value={tabValue} index={1}>
           b
-
+          {/* <Textarea></Textarea>
+          <Textarea></Textarea>
+          <Textarea></Textarea>
+          <Textarea></Textarea>
+          <Textarea></Textarea>
+          <Textarea></Textarea>
+          <Textarea></Textarea> */}
         </TabPanel>
       </main>
     </div>
@@ -150,7 +162,7 @@ export default function Home() {
       if (userInfo.nickname == "" || userInfo.nickname == null) {
         console.log("ニックネームを設定するよ");
         console.log(`${JSON.stringify(userInfo)}`);
-        Contents = <FirstLogin userInfo={userInfo} />;
+        Contents = <FirstSignIn userInfo={userInfo} />;
       } else {
         console.log("ログイン処理完了！");
         Contents = (

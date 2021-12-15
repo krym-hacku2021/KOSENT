@@ -14,7 +14,7 @@ import {
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import { modifyNickname } from "../lib/db_user";
 
-export default function FirstLogin({ userInfo }) {
+export default function FirstSignIn({ userInfo }) {
   const inputNickname = useRef("名無しさん");
   const router = useRouter();
 
