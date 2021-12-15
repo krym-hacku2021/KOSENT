@@ -1,6 +1,7 @@
 /** @format */
 
 import Postans from "../styles/PostAns.module.css";
+import Image from "next/image";
 
 export default function PostAns({
   user_name,
@@ -35,13 +36,13 @@ export default function PostAns({
 
           <div className="Postans.button">
             <div className="Postans.good">
-              <img src="/good.png" />
+              <Image src="/good.png" />
             </div>
             <div className="Postans.g_count">
               <p>{good}</p>
             </div>
             <div className="Postans.bad">
-              <img src="/bad.png" />
+              <Image src="/bad.png" />
             </div>
             <div className="Postans.b_count">
               <p>{bad}</p>
@@ -51,7 +52,7 @@ export default function PostAns({
 
         <div className="Postans.kontentu">
           <div className="Postans.block">
-            <img src="/block.png" />
+            <Image src="/block.png" />
           </div>
         </div>
       </div>
