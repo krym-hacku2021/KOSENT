@@ -148,7 +148,7 @@ export default function EXAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ background: "#FA8F02" }}>
         <Toolbar>
-          <Link href="/">
+          <Link href="https://kosent.vercel.app/">
             <Image src="/KOSENT-c.png" alt="KOSENT" width="100px" height="50px"/>
           </Link>
           <Box sx={{ flexGrow: 1 }} />
