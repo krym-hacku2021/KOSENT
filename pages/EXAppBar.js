@@ -148,16 +148,9 @@ export default function EXAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ background: "#FA8F02" }}>
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            <Link href="/">
-              <Image src="/KOSENT-c.png" alt="KOSENT" />
-            </Link>
-          </Typography>
+          <Link href="/">
+            <Image src="/logo.png" alt="KOSENT" width="100px" height="50px"/>
+          </Link>
           <Box sx={{ flexGrow: 1 }} />
           <Search>
             <SearchIconWrapper>

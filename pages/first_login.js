@@ -1,7 +1,15 @@
 /** @format */
 import Image from "next/image";
-import { Box, Button, Container, Grid, Paper, Stack } from "@mui/material";
-//import { Box } from "@mui/system";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Paper,
+  Stack,
+  TextField,
+} from "@mui/material";
+import AccountCircle from "@mui/icons-material/AccountCircle";
 
 export default function SignIn() {
   return (
@@ -31,7 +39,17 @@ export default function SignIn() {
             </Grid>
           </Box>
           <>
-            <p>利用するにはボタンを押してログインしてください。</p>
+            <p>ニックネームを登録してください。</p>
+          </>
+          <>
+            <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+              <AccountCircle sx={{ color: "action.active", mr: 1, my: 0.5 }} />
+              <TextField
+                id="outlined-basic"
+                label="ニックネーム"
+                variant="standard"
+              />
+            </Box>
           </>
           <>
             <Button
@@ -47,41 +65,7 @@ export default function SignIn() {
               }}
               onClick={() => {}}
             >
-              GitHubログイン
-            </Button>
-          </>
-          <>
-            <Button
-              variant="contained"
-              size="large"
-              sx={{
-                width: "200px",
-                background: "#F7723F",
-                "&:hover": {
-                  backgroundColor: "#FF4901",
-                  opacity: [0.9, 0.8, 0.7],
-                },
-              }}
-              onClick={() => {}}
-            >
-              Discordログイン
-            </Button>
-          </>
-          <>
-            <Button
-              variant="contained"
-              size="large"
-              sx={{
-                width: "200px",
-                background: "#F7723F",
-                "&:hover": {
-                  backgroundColor: "#FF4901",
-                  opacity: [0.9, 0.8, 0.7],
-                },
-              }}
-              onClick={() => {}}
-            >
-              Slackログイン
+              登録
             </Button>
           </>
           <p></p>
