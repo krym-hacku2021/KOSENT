@@ -17,6 +17,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 // import Text from "./text.js"
 import Search_Results from "./search_Results";
+import Text from "./tabtext.js"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

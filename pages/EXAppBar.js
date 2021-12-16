@@ -97,7 +97,7 @@ export default function EXAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}><Link href="https://kosent.vercel.app/signin">Profile</Link></MenuItem>
+      <MenuItem onClick={handleMenuClose}><Link href="https://kosent.vercel.app/first_login">Profile</Link></MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
