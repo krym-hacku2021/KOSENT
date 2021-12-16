@@ -1,9 +1,9 @@
-import Head from "next/head";
+import Link from "next/link";
 import Image from "next/image";
-function Balloon1({post_txt}) {
+function Balloon1({post_ans}) {
     return (
         <div className="balloon1">
-            <div className="balloon-img1">
+            <div className="balloon-Image1">
                 <Image src="/balloon1.png" alt="balloon1" width="100px" height="100px" />
             </div>
             
@@ -13,7 +13,7 @@ function Balloon1({post_txt}) {
                 </div>
 
                 <div className="text">
-                    <Link href="https://tomosta.jp/article/nextjs-basic/#ib-toc-anchor-7">{post_txt}</Link>
+                    <Link href="https://tomosta.jp/article/nextjs-basic/#ib-toc-anchor-7">{post_ans}</Link>
                 </div>
             </div>
         </div>

@@ -1,9 +1,9 @@
 // import Link from "next/link";
 import Image from "next/image";
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import EXAppBar from "./EXAppBar";
 export default function question(props){
-    const[text,setText]=useState("")
+    // const[text,setText]=useState("")
     // function handlonChange(event){
     //     setText(event.target.value);
     // }
@@ -12,9 +12,9 @@ export default function question(props){
     //    event.preventDefault(); 
     // }
 
-    const update=function(){
-        props.update(text);
-    }
+    // const update=function(){
+    //     props.update(text);
+    // }
 
   return (
   <div>
@@ -40,8 +40,8 @@ export default function question(props){
             </div>
         </div>
         <div className="b">
-        <textarea class="txt" placeholder="3文字以上入力してください" 
-        onChange={event => setText(event.target.value)}
+        <textarea className="txt" placeholder="3文字以上入力してください" 
+        // onChange={event => setText(event.target.value)}
         /><br></br>
         <p className="sita">あなたにおすすめのタグ<br></br>
         <button className="kadomaru">#広島商船</button>
