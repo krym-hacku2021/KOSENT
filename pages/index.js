@@ -16,6 +16,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 // import Text from "./text.js"
+import Search_Results from "./search_Results";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -131,6 +132,13 @@ export default function Home() {
 
         </TabPanel>
       </main>
+
+      <Search_Results
+        post_txt="aaaaaaaaaaaa"
+        post_time="2021/12/16 11:35"
+        tag="tagです"
+        >
+      </Search_Results>
     </div>
   );
 }
