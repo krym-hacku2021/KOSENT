@@ -30,8 +30,8 @@ export default function SignIn() {
             >
               <Grid>
                 <Image
-                  src="/logo.png"
-                  alt="logo"
+                  src="/KOSENT-c.png"
+                  alt="KOSENT"
                   width="292px"
                   height="115px"
                 />

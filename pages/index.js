@@ -134,6 +134,24 @@ export default function Home() {
           tag="tagです"
           >
           </Search_Results>
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
         </TabPanel>
         <TabPanel value={tabValue} index={1}>
           
@@ -143,9 +161,27 @@ export default function Home() {
           tag="tagです"
           >
           </Search_Results>
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
         </TabPanel>
 
-        <PostAns
+        {/* <PostAns
           user_name="22018016"
           post_time="2021/12/16 14:00"
           post_txt="abcdefghijk"
@@ -153,7 +189,7 @@ export default function Home() {
           good="9"
           bad="0"
         >
-        </PostAns>
+        </PostAns> */}
       </main>
 
     </div>
