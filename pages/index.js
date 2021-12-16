@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Container, Paper } from "@mui/material";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import styles from "../styles/Home.module.css";
 import EXAppBar from "./EXAppBar";
 import ArrowRightRoundedIcon from "@mui/icons-material/ArrowRightRounded";
 import ArrowLeftRoundedIcon from "@mui/icons-material/ArrowLeftRounded";
