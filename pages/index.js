@@ -18,6 +18,7 @@ import Box from "@mui/material/Box";
 // import Text from "./text.js"
 import Search_Results from "./search_Results";
 import Text from "./tabtext.js"
+import PostAns from "./post_ans";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -142,6 +143,16 @@ export default function Home() {
           >
           </Search_Results>
         </TabPanel>
+
+        <PostAns
+          user_name="22018016"
+          post_time="2021/12/16 14:00"
+          post_txt="abcdefghijk"
+          tag="#tagtagtag"
+          good="9"
+          bad="0"
+        >
+        </PostAns>
       </main>
 
     </div>
