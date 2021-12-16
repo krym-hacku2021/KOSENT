@@ -1,6 +1,6 @@
 /** @format */
 
-import Postans from "../styles/PostAns.module.css";
+
 import Image from "next/image";
 
 export default function PostAns({
