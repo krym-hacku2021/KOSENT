@@ -162,6 +162,7 @@ export default function EXAppBar() {
               onChange={(event) => setSerch(event.target.value)}
             />
           </Search>
+          <Link href="https://kosent.vercel.app/text">
           <Button
             variant=""
             startIcon={<SendIcon />}
@@ -183,9 +184,10 @@ export default function EXAppBar() {
               component="div"
               sx={{ display: { xs: "none", sm: "block" } }}
             >
-              <Link href="https://kosent.vercel.app/text">質問・相談</Link>
+              質問・相談
             </Typography>
           </Button>
+          </Link>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
