@@ -19,6 +19,7 @@ import Box from "@mui/material/Box";
 import Search_Results from "./search_Results";
 import Text from "./tabtext.js"
 import PostAns from "./post_ans";
+import Balloon from "./balloon1.js"
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -83,34 +84,34 @@ export default function Home() {
             <Paper
               elevation={3}
               sx={{
-                height: 300,
+                height: 350,
                 backgroundColor: "#FFB8B8",
               }}
             >
               <h2>
-                1page
+                <Balloon/>
               </h2>
             </Paper>
             <Paper
               elevation={3}
               sx={{
-                height: 300,
+                height: 350,
                 backgroundColor: "#B8FFB8",
               }}
             >
               <h2>
-                2page
+                <Balloon/>
               </h2>
             </Paper>
             <Paper
               elevation={3}
               sx={{
-                height: 300,
+                height: 350,
                 backgroundColor: "#B8D7FF",
               }}
             >
               <h2>
-                3page
+                <Balloon/>
               </h2>
             </Paper>
           </Carousel>
