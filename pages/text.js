@@ -40,7 +40,7 @@ export default function question(props){
             </div>
         </div>
         <div className="b">
-        <textarea class="txt" placeholder="3文字以上入力してください" 
+        <textarea className="txt" placeholder="3文字以上入力してください" 
         onChange={event => setText(event.target.value)}
         /><br></br>
         <p className="sita">あなたにおすすめのタグ<br></br>

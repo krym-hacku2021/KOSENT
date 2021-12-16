@@ -1,9 +1,9 @@
-import Head from "next/head";
+import Link from "next/link";
 import Image from "next/image";
 function Balloon1({post_txt}) {
     return (
         <div className="balloon1">
-            <div className="balloon-img1">
+            <div className="balloon-Image1">
                 <Image src="/balloon1.png" alt="balloon1" width="100px" height="100px" />
             </div>
             
