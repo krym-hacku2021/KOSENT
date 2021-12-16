@@ -124,21 +124,25 @@ export default function Home() {
           </Tabs>
         </Box>
         <TabPanel value={tabValue} index={0}>
-          a
-
+          
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
         </TabPanel>
         <TabPanel value={tabValue} index={1}>
-          b
-
+          
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
         </TabPanel>
       </main>
 
-      <Search_Results
-        post_txt="aaaaaaaaaaaa"
-        post_time="2021/12/16 11:35"
-        tag="tagです"
-        >
-      </Search_Results>
     </div>
   );
 }
