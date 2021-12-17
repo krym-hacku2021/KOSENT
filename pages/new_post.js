@@ -4,7 +4,7 @@
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
-import Router from "next/router";
+import Router, { useRouter } from "next/router";
 import { useState, useRef, useContext } from "react";
 import EXAppBar from "../components/EXAppBar";
 import styles from "../styles/Home.module.css";
@@ -19,9 +19,6 @@ import {
   TextareaAutosize,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import QuizIcon from "@mui/icons-material/Quiz";
-import AnnouncementIcon from "@mui/icons-material/Announcement";
-import { UploadButton } from "../components/UploadButton";
 import { addAnswer, putFile, addQuestion } from "../lib/db_post";
 import { UserData } from "../hooks/UserData";
 
@@ -30,7 +27,8 @@ const Input = styled("input")({
 });
 
 export default function NewPost({ props }) {
-  const { userInfo } = useContext(UserData);
+  const router = useRouter();
+  const { session, userInfo } = useContext(UserData);
   const [inputText, setInputText] = useState("");
   const [images, setImages] = useState([]);
   const [tags, setTags] = useState([
@@ -40,29 +38,34 @@ export default function NewPost({ props }) {
     "#商船学科",
   ]);
 
-  const update = function () {
-    props.update(text);
-  };
-
   const changeUploadFile = async (event) => {
-    console.log("aaa");
-    //const { name, files } = event.target;
-    console.log(JSON.stringify(event.target.value));
-    console.log(JSON.stringify(event.target.files));
+    console.log(
+      `changeUploadFile: ${JSON.stringify(event.target.value)} ${JSON.stringify(
+        event.target.files
+      )}`
+    );
     var filename = event.target.value;
-    // var filename = event.target.files[0];
+    var file = event.target.files[0];
 
-    putFile(filename).then((value) => {
-       console.log("アップロード完了")
-    })
+    putFile(filename, file).then((value) => {
+      console.log("アップロード完了");
+    });
 
-    // event.target.value = "";
+    event.target.value = "";
   };
 
   const submitNewPost = () => {
+    if (inputText.length <= 1) return;
+
     console.log("submit");
     addQuestion(userInfo.id, inputText, images);
+
+    router.push("/");
   };
+
+  // if(!session) {
+  //   router.replace("/");
+  // }
 
   return (
     <div className={styles.container}>

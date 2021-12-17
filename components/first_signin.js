@@ -37,11 +37,7 @@ export default function FirstSignIn({ userInfo }) {
               <Grid>
                 <Image
                   src="/KOSENT-c.png"
-<<<<<<< HEAD:components/first_signin.js
-                  alt="logo"
-=======
                   alt="KOSENT"
->>>>>>> 16513830740062da516fe97ef5f7fe9a10c3e24f:pages/first_login.js
                   width="292px"
                   height="115px"
                 />

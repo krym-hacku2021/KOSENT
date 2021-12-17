@@ -53,40 +53,6 @@ export default function SignIn({
               GitHubログイン
             </Button>
           </>
-          {/* <>
-            <Button
-              variant="contained"
-              size="large"
-              sx={{
-                width: "200px",
-                background: "#FA8F02",
-                "&:hover": {
-                  backgroundColor: "#FF4901",
-                  opacity: [0.9, 0.8, 0.7],
-                },
-              }}
-              onClick={() => signInWithDiscord()}
-            >
-              Discordログイン
-            </Button>
-          </>
-          <>
-            <Button
-              variant="contained"
-              size="large"
-              sx={{
-                width: "200px",
-                background: "#FA8F02",
-                "&:hover": {
-                  backgroundColor: "#FF4901",
-                  opacity: [0.9, 0.8, 0.7],
-                },
-              }}
-              onClick={() => signInWithSlack()}
-            >
-              Slackログイン
-            </Button>
-          </> */}
           <p></p>
         </Stack>
       </Paper>
