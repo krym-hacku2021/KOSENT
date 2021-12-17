@@ -17,12 +17,12 @@ export default function Txtarea(props){
         // </div></>
         <>
         {/* <EXAppBar/> */}
-        <div class="flame02"><font size="5"><Link href="http://localhost:3000/tabtext">
+        <div className="flame02"><font size="5"><Link href="http://localhost:3000/tabtext">
         あああああああああああああああああああああああああああああああああああああああ</Link></font><br></br>
         <time>12月08日12：09</time>
-        <button class="kadomaru">#高専</button>
-        <button class="kadomaru">#流通情報工学科</button>
-        <button class="kadomaru">#C言語</button>
+        <button className="kadomaru">#高専</button>
+        <button className="kadomaru">#流通情報工学科</button>
+        <button className="kadomaru">#C言語</button>
         </div>
         </>
     )
