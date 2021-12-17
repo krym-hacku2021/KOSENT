@@ -1,6 +1,6 @@
 /** @format */
 
-import Postans from "../styles/PostAns.module.css";
+
 import Image from "next/image";
 
 export default function PostAns({
@@ -12,47 +12,47 @@ export default function PostAns({
   bad,
 }) {
   return (
-    <div className="Postans.main1">
-      <div className="Postans.postframe">
-        <div className="Postans.textframe">
-          <div className="Postans.ue">
-            <div className="Postans.userid">
+    <div className="main1">
+      <div className="postframe">
+        <div className="textframe">
+          <div className="ue">
+            <div className="userid">
               <p>{user_name}さん</p>
             </div>
-            <div className="Postans.date">
+            <div className="date">
               <p>{post_time}</p>
             </div>
-            <div className="Postans.circle"></div>
+            <div className="circle"></div>
           </div>
 
-          <div className="Postans.question">
+          <div className="question">
             <p>{post_txt}</p>
           </div>
-          <div className="Postans.tagframe">
-            <div className="Postans.hashtag">
+          <div className="tagframe">
+            <div className="hashtag">
               <p>{tag}</p>
             </div>
           </div>
 
-          <div className="Postans.button">
-            <div className="Postans.good">
-              <Image src="/good.png" />
+          <div className="button">
+            <div className="good">
+              <Image src="/good.png" alt="good" width="100px" height="100px" />
             </div>
-            <div className="Postans.g_count">
+            <div className="g_count">
               <p>{good}</p>
             </div>
-            <div className="Postans.bad">
-              <Image src="/bad.png" />
+            <div className="bad">
+              <Image src="/bad.png" alt="bad" width="100px" height="100px"/>
             </div>
-            <div className="Postans.b_count">
+            <div className="b_count">
               <p>{bad}</p>
             </div>
           </div>
         </div>
 
-        <div className="Postans.kontentu">
-          <div className="Postans.block">
-            <Image src="/block.png" />
+        <div className="kontentu">
+          <div className="block">
+            <Image src="/block.png" alt="block" width="100px" height="100px" />
           </div>
         </div>
       </div>

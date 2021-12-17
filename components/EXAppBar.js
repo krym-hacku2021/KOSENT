@@ -99,7 +99,12 @@ export default function EXAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
+<<<<<<< HEAD:components/EXAppBar.js
       <MenuItem onClick={handleMenuClose}>プロファイル</MenuItem>
+=======
+      <MenuItem onClick={handleMenuClose}><Link href="https://kosent.vercel.app/first_login">Profile</Link></MenuItem>
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+>>>>>>> 16513830740062da516fe97ef5f7fe9a10c3e24f:pages/EXAppBar.js
     </Menu>
   );
   const mobileMenuId = "exappbar-account-menu-mobile";
@@ -163,6 +168,7 @@ export default function EXAppBar() {
               onChange={(event) => setSerch(event.target.value)}
             />
           </Search>
+          <Link href="https://kosent.vercel.app/text">
           <Button
             variant=""
             startIcon={<SendIcon />}
@@ -188,6 +194,7 @@ export default function EXAppBar() {
               質問・相談
             </Typography>
           </Button>
+          </Link>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"

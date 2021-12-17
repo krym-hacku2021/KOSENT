@@ -1,8 +1,10 @@
-function Balloon1({post_txt}) {
+import Link from "next/link";
+import Image from "next/image";
+function Balloon1() {
     return (
         <div className="balloon1">
-            <div className="balloon-img1">
-                <img src="/balloon1.png" alt="balloon1" />
+            <div className="balloon-Image1">
+                <Image src="/balloon1.png" alt="balloon1" width="300px" height="300px" />
             </div>
             
             <div className="ballooncontainer">
@@ -11,7 +13,7 @@ function Balloon1({post_txt}) {
                 </div>
 
                 <div className="text">
-                    <a href="https://tomosta.jp/article/nextjs-basic/#ib-toc-anchor-7">{post_txt}</a>
+                    <Link href="http://localhost:3000/tabtext">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Link>
                 </div>
             </div>
         </div>

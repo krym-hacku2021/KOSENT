@@ -1,7 +1,8 @@
 /** @format */
 
 import PostSc from "../styles/PostScreen.module.css";
-
+import Head from "next/head";
+import Image from "next/image";
 export default function PostScreen({
   user_id,
   post_time,
@@ -45,10 +46,10 @@ export default function PostScreen({
 
         <div className="PostSc.kontentu">
           <div className="PostSc.kyouyu">
-            <img src="/share.png" />
+            <Image src="/share.png" alt="share" width="100px" height="100px"/>
           </div>
           <div className="PostSc.block">
-            <img src="/block.png" />
+            <Image src="/block.png" alt="block" width="100px" height="100px" />
           </div>
         </div>
       </div>

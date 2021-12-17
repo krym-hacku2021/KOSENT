@@ -13,6 +13,19 @@ import EXAppBar from "../components/EXAppBar";
 
 import ArrowRightRoundedIcon from "@mui/icons-material/ArrowRightRounded";
 import ArrowLeftRoundedIcon from "@mui/icons-material/ArrowLeftRounded";
+<<<<<<< HEAD
+=======
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+// import Text from "./text.js"
+import Search_Results from "./search_Results";
+import Text from "./tabtext.js"
+import PostAns from "./post_ans";
+import Balloon from "./balloon1.js"
+>>>>>>> 16513830740062da516fe97ef5f7fe9a10c3e24f
 
 import styles from "../styles/Home.module.css";
 
@@ -50,34 +63,46 @@ function HomeLoggedIn() {
             <Paper
               elevation={3}
               sx={{
-                height: 300,
+                height: 350,
                 backgroundColor: "#FFB8B8",
               }}
             >
               <h2>
+<<<<<<< HEAD
                 <Baloon></Baloon>
+=======
+                <Balloon/>
+>>>>>>> 16513830740062da516fe97ef5f7fe9a10c3e24f
               </h2>
             </Paper>
             <Paper
               elevation={3}
               sx={{
-                height: 300,
+                height: 350,
                 backgroundColor: "#B8FFB8",
               }}
             >
               <h2>
+<<<<<<< HEAD
                 <Baloon></Baloon>
+=======
+                <Balloon/>
+>>>>>>> 16513830740062da516fe97ef5f7fe9a10c3e24f
               </h2>
             </Paper>
             <Paper
               elevation={3}
               sx={{
-                height: 300,
+                height: 350,
                 backgroundColor: "#B8D7FF",
               }}
             >
               <h2>
+<<<<<<< HEAD
                 <Baloon></Baloon>
+=======
+                <Balloon/>
+>>>>>>> 16513830740062da516fe97ef5f7fe9a10c3e24f
               </h2>
             </Paper>
           </Carousel>
@@ -96,6 +121,7 @@ function HomeLoggedIn() {
           </Tabs>
         </Box>
         <TabPanel value={tabValue} index={0}>
+<<<<<<< HEAD
           a
           {/* <Textarea></Textarea>
           <Textarea></Textarea>
@@ -114,8 +140,73 @@ function HomeLoggedIn() {
           <Textarea></Textarea>
           <Textarea></Textarea>
           <Textarea></Textarea> */}
+=======
+          
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
         </TabPanel>
+        <TabPanel value={tabValue} index={1}>
+          
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
+          <Search_Results
+          post_txt="aaaaaaaaaaaa"
+          post_time="2021/12/16 11:35"
+          tag="tagです"
+          >
+          </Search_Results>
+>>>>>>> 16513830740062da516fe97ef5f7fe9a10c3e24f
+        </TabPanel>
+
+        {/* <PostAns
+          user_name="22018016"
+          post_time="2021/12/16 14:00"
+          post_txt="abcdefghijk"
+          tag="#tagtagtag"
+          good="9"
+          bad="0"
+        >
+        </PostAns> */}
       </main>
+
     </div>
   );
 }

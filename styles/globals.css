@@ -756,3 +756,48 @@ body{
   align-items: right;
   margin:0;
 }
+
+.kadomaru {
+  position: bottom;
+  bottom: 0;
+  right:0;
+  flex-direction: row;
+  display:inline-block;
+  height:35px;
+  border: 2px solid #ccc;
+  background:rgb(230, 230, 230);
+  border-radius:50px;
+  margin-left: 30px;
+}
+.kadomaru:hover {
+  display:inline-block;
+  height:35px;
+  /* border-radius:10px; */
+  border: 2px solid rgb(151, 162, 255);
+  background:rgb(230, 230, 230);
+  border-radius:50px;
+  margin-left: 30px;
+}
+.kadomaru:focus {
+  display:inline-block;
+  height:35px;
+  /* border-radius:10px; */
+  border: 2px solid rgb(11, 35, 255);
+  background:rgb(230, 230, 230);
+  border-radius:30px;
+  margin-left: 30px;
+}
+.flame02 {
+margin: 0 auto;
+padding: 1em;
+width: 100%;
+color: #000;
+background-color: #f5f5f5;
+border: 1px solid #ccc;
+}
+
+hr {
+      margin-top: 20px;
+      width: 100%;
+      border: 1px solid lightgray;
+    }
