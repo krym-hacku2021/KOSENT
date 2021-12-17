@@ -615,11 +615,9 @@ body{
   background: #ffffff;
   margin: 0.5em 0;
 }
-textarea{
-  border-radius:45px;
- margin:0 auto;
-  resize: none;
-}
+/* textarea{
+  border-radius:5px;
+} */
 textarea::placeholder{
     color: rgb(255, 192, 121);
 }

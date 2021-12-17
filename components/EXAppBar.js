@@ -13,7 +13,6 @@ import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
@@ -21,6 +20,8 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import SendIcon from "@mui/icons-material/Send";
 import React, { useState } from "react";
+import { useRouter } from "next/router";
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -59,6 +60,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 export default function EXAppBar() {
+  const router = useRouter();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const isMenuOpen = Boolean(anchorEl);
@@ -97,8 +99,7 @@ export default function EXAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem onClick={handleMenuClose}>プロファイル</MenuItem>
     </Menu>
   );
   const mobileMenuId = "exappbar-account-menu-mobile";
@@ -176,6 +177,7 @@ export default function EXAppBar() {
                 background: "#FFFFFF00",
               },
             }}
+            onClick={() => router.push("/new_post")}
           >
             <Typography
               variant="button"
@@ -183,7 +185,7 @@ export default function EXAppBar() {
               component="div"
               sx={{ display: { xs: "none", sm: "block" } }}
             >
-              <Link href="https://kosent.vercel.app/text">質問・相談</Link>
+              質問・相談
             </Typography>
           </Button>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>

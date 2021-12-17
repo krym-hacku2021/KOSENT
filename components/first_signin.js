@@ -27,7 +27,7 @@ export default function FirstSignIn({ userInfo }) {
           alignItems="center"
           spacing={2}
         >
-          <Box sx={{ background: "#F7723F", width: "100%" }}>
+          <Box sx={{ background: "#FA8F02", width: "100%" }}>
             <Grid
               container
               direction="column"
@@ -64,7 +64,7 @@ export default function FirstSignIn({ userInfo }) {
               size="large"
               sx={{
                 width: "200px",
-                background: "#F7723F",
+                background: "#FA8F02",
                 "&:hover": {
                   backgroundColor: "#FF4901",
                   opacity: [0.9, 0.8, 0.7],

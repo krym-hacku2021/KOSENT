@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,9 +16,9 @@ import ArrowLeftRoundedIcon from "@mui/icons-material/ArrowLeftRounded";
 
 import styles from "../styles/Home.module.css";
 
-import { supabase } from "../lib/supabase_client";
+
 import { UserData } from "../hooks/UserData";
-import useUser from "../hooks/useUser";
+
 import { getUserInfo, modifyUserInfo } from "../lib/db_user";
 import { TabPanel, a11yProps } from "../components/TabPanel";
 import SignIn from "../components/signin";
@@ -86,7 +86,7 @@ function HomeLoggedIn() {
         <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100vw" }}>
           <Tabs
             value={tabValue}
-            sx={{width: "100%"}}
+            sx={{ width: "100%" }}
             onChange={(event, newValue) => {
               setTabValue(newValue);
             }}
@@ -121,26 +121,16 @@ function HomeLoggedIn() {
 }
 
 export default function Home() {
-
+  const [userInfoLoaded, setUserInfoLoaded] = useState(false);
   const {
+    userInfo,
+    setUserInfo,
     session,
     signInWithGithub,
     signInWithDiscord,
     signInWithSlack,
     signOut,
-  } = useUser();
-  const [userInfoLoaded, setUserInfoLoaded] = useState(false);
-  const [userInfo, setUserInfo] = useState({
-    id: "",
-    nickname: "",
-    avatarurl: "",
-  });
-  const userDataValue = {
-    userInfo,
-    setUserInfo,
-    session,
-    signOut
-  };
+  } = useContext(UserData);
 
   let Contents = <div>ろーでぃんぐ</div>;
 
@@ -165,11 +155,7 @@ export default function Home() {
         Contents = <FirstSignIn userInfo={userInfo} />;
       } else {
         console.log("ログイン処理完了！");
-        Contents = (
-          <UserData.Provider value={userDataValue}>
-            <HomeLoggedIn signOut={signOut} />
-          </UserData.Provider>
-        );
+        Contents = <HomeLoggedIn signOut={signOut} />;
       }
     }
   } else {
