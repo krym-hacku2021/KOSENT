@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 // import Image from "next/image";
-import EXAppBar from "./EXAppBar";
-import Text from "./text.js"
+
 export default function Txtarea(props){
     // const[text,setText]=useState("");
     // const Updetetext=function(value){
