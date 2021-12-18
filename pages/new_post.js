@@ -16,21 +16,23 @@ import {
   Grid,
   ImageList,
   ImageListItem,
+  Stack,
   TextareaAutosize,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { addAnswer, putFile, addQuestion } from "../lib/db_post";
+import { addAnswer, putFile, addQuestion, getImageURL } from "../lib/db_post";
 import { UserData } from "../hooks/UserData";
 
 const Input = styled("input")({
   display: "none",
 });
 
-export default function NewPost({ props }) {
+export default function NewPost() {
   const router = useRouter();
   const { session, userInfo } = useContext(UserData);
   const [inputText, setInputText] = useState("");
   const [images, setImages] = useState([]);
+
   const [tags, setTags] = useState([
     "#広島商船",
     "#流通情報工学科",
@@ -48,7 +50,12 @@ export default function NewPost({ props }) {
     var file = event.target.files[0];
 
     putFile(filename, file).then((value) => {
-      console.log("アップロード完了");
+      getImageURL(value).then((url) => {
+        var listurl = images;
+        listurl.push({ file: value, url: url });
+        setImages(listurl);
+      });
+      console.log("アップロード完了 : " + value);
     });
 
     event.target.value = "";
@@ -58,14 +65,18 @@ export default function NewPost({ props }) {
     if (inputText.length <= 1) return;
 
     console.log("submit");
-    addQuestion(userInfo.id, inputText, images);
+    var imglist = images.map(item => item.file);
+
+    addQuestion(userInfo.id, userInfo.nickname, inputText, imglist);
 
     router.push("/");
   };
 
-  // if(!session) {
-  //   router.replace("/");
-  // }
+  if (!session) {
+    router.replace("/");
+  }
+
+  var imageListHeight = Math.min((images.length / 2) * 200, 450);
 
   return (
     <div className={styles.container}>
@@ -79,47 +90,38 @@ export default function NewPost({ props }) {
         <EXAppBar></EXAppBar>
 
         <Container maxWidth="sm">
-          <p>{userInfo.id}</p>
-          <p>{userInfo.nickname}</p>
-          <p>{userInfo.avatarurl}</p>
-          <Grid
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Grid item xs={1}>
-              <Image
-                src="/question.png"
-                alt="question"
-                width={40}
-                height={40}
-              />
+          <Stack spacing={2}>
+            <Grid
+              container
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Grid item xs={1}>
+                <Image
+                  src="/question.png"
+                  alt="question"
+                  width={40}
+                  height={40}
+                />
+              </Grid>
+              <Grid item xs={11}>
+                ふとした悩みや疑問を投稿してみましょう！
+              </Grid>
+              <Grid item xs={1}>
+                <Image
+                  src="/attention.png"
+                  alt="attention"
+                  width={40}
+                  height={40}
+                />
+              </Grid>
+              <Grid item xs={11}>
+                誹謗中傷はやめましょう
+              </Grid>
             </Grid>
-            <Grid item xs={11}>
-              ふとした悩みや疑問を投稿してみましょう！
-            </Grid>
-            <Grid item xs={1}>
-              <Image
-                src="/attention.png"
-                alt="attention"
-                width={40}
-                height={40}
-              />
-            </Grid>
-            <Grid item xs={11}>
-              誹謗中傷はやめましょう
-            </Grid>
-          </Grid>
-        </Container>
 
-        <Grid
-          container
-          spacing={{ xs: 2, md: 3 }}
-          columns={{ xs: 4, sm: 8, md: 12 }}
-        >
-          <Grid item xs={4} sm={8} md={7}>
-            <Box sx={{ bgcolor: "#cfe8fc" }}>
+            <Box>
               <TextareaAutosize
                 aria-label="question text"
                 minRows={10}
@@ -130,7 +132,7 @@ export default function NewPost({ props }) {
                   setInputText(event.target.value);
                 }}
               />
-              <div>あなたにおすすめのタグ: {inputText}</div>
+              <div>あなたにおすすめのタグ</div>
               {tags.map((tag, index) => (
                 <Chip
                   key={`${tag}-${index}`}
@@ -140,99 +142,53 @@ export default function NewPost({ props }) {
                 />
               ))}
             </Box>
-          </Grid>
-          <Grid item xs={4} sm={8} md={5}>
-            <Box sx={{ bgcolor: "#cfe8fc" }}>
-              <Grid container>
-                <Grid item xs={6}>
-                  <label htmlFor="contained-uploadbutton-file1">
-                    <Input
-                      accept="image/*"
-                      id="contained-uploadbutton-file1"
-                      type="file"
-                      onChange={changeUploadFile}
-                    />
-                    <Button
-                      variant="outlined"
-                      component="span"
-                      fullWidth={true}
-                    >
-                      Upload
-                    </Button>
-                  </label>
-                </Grid>
-                <Grid item xs={6}>
-                  <label htmlFor="contained-uploadbutton-file2">
-                    <Input
-                      accept="image/*"
-                      id="contained-uploadbutton-file2"
-                      type="file"
-                      onChange={changeUploadFile}
-                    />
-                    <Button
-                      variant="outlined"
-                      component="span"
-                      fullWidth={true}
-                    >
-                      Upload
-                    </Button>
-                  </label>
-                </Grid>
-                <Grid item xs={6}>
-                  <label htmlFor="contained-uploadbutton-file3">
-                    <Input
-                      accept="image/*"
-                      id="contained-uploadbutton-file3"
-                      type="file"
-                      onChange={changeUploadFile}
-                    />
-                    <Button
-                      variant="outlined"
-                      component="span"
-                      fullWidth={true}
-                    >
-                      Upload
-                    </Button>
-                  </label>
-                </Grid>
-                <Grid item xs={6}>
-                  <label htmlFor="contained-uploadbutton-file4">
-                    <Input
-                      accept="image/*"
-                      id="contained-uploadbutton-file4"
-                      type="file"
-                      onChange={changeUploadFile}
-                    />
-                    <Button
-                      variant="outlined"
-                      component="span"
-                      fullWidth={true}
-                    >
-                      Upload
-                    </Button>
-                  </label>
-                </Grid>
-              </Grid>
-            </Box>
-          </Grid>
-        </Grid>
 
-        <Container maxWidth="sm">
-          <Button
-            variant="contained"
-            size="large"
-            fullWidth={true}
-            sx={{
-              background: "#FA8F02",
-              "&:hover": {
-                backgroundColor: "#FF4901",
-                opacity: [0.9, 0.8, 0.7],
-              },
-            }}
-            onClick={() => submitNewPost()}
-          >
-            送信
-          </Button>
+            <Box>
+              <ImageList
+                sx={{ width: 500, height: { imageListHeight } }}
+                cols={2}
+                rowHeight={164}
+              >
+                {images.map((item) => (
+                  <ImageListItem key={item.file}>
+                    <img src={item.url} alt={item.file} loading="lazy" />
+                  </ImageListItem>
+                ))}
+              </ImageList>
+            </Box>
+
+            <Box>
+              {images.length < 4 ? (
+                <label htmlFor="contained-uploadbutton-file1">
+                  <Input
+                    accept="image/*"
+                    id="contained-uploadbutton-file1"
+                    type="file"
+                    onChange={changeUploadFile}
+                  />
+                  <Button variant="outlined" component="span" fullWidth={true}>
+                    Upload
+                  </Button>
+                </label>
+              ) : null}
+            </Box>
+
+            <Button
+              variant="contained"
+              size="large"
+              fullWidth={true}
+              sx={{
+                background: "#FA8F02",
+                "&:hover": {
+                  backgroundColor: "#FF4901",
+                  opacity: [0.9, 0.8, 0.7],
+                },
+              }}
+              onClick={() => submitNewPost()}
+            >
+              送信
+            </Button>
+          </Stack>
         </Container>
       </main>
     </div>
