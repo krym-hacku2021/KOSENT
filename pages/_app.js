@@ -18,6 +18,7 @@ function MyApp({ Component, pageProps }) {
     id: "",
     nickname: "",
     avatarurl: "",
+    score: 0
   });
 
   const userDataValue = {

@@ -65,7 +65,7 @@ export default function HomeSignedIn() {
 
       <main className={styles.main}>
         <EXAppBar></EXAppBar>
-        <p>{userInfo.nickname}さん、こんにちは</p>
+        <p>{userInfo.nickname}さん、こんにちは。あなたのポイントは{userInfo.score}ptsです。</p>
         <Container maxWidth="sm">
           <Box sx={{ borderBottom: 1, borderColor: "divider", width: "100%" }}>
             <Tabs
