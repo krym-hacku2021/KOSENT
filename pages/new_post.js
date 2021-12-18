@@ -72,9 +72,9 @@ export default function NewPost() {
     router.push("/");
   };
 
-  if (!session) {
-    router.replace("/");
-  }
+  // if (!session) {
+  //   router.replace("/");
+  // }
 
   var imageListHeight = Math.min((images.length / 2) * 200, 450);
 
